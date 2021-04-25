@@ -1,0 +1,16 @@
+.fondo-tienda{
+    background-color:rgb(245, 245, 244);
+    padding: 2%;
+    margin-top:2%;
+}
+
+.barra-busqueda{
+    background-color:rgb(216, 216, 216);
+    box-shadow:none;
+    border-radius: 8%;
+}
+
+.mat-card-tienda{
+    padding:0 ;
+}
+

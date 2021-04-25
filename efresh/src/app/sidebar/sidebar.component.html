@@ -1,0 +1,46 @@
+
+<div>
+<mat-drawer-container class="sidebar-container" fullscreen>
+  <div>
+    <nav class="navbar navbar-dark bg-info efreshnavbar"   >
+      <mat-icon class="menu-icon-landing" (click)="drawer.toggle()">menu</mat-icon>
+      <a class="navbar-brand texto-navbar"routerLink="/">
+        <img src="../assets/hoja.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        e-Fresh
+      </a>
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit" routerLink="/login">Login</button>
+    </nav>
+    </div>
+
+
+
+
+    <!-- Sidebar -->
+    <mat-drawer #drawer class="sidebar-sidenav fondo-sidebar" mode="over">
+      <div class="navbar-brand texto-navbar">
+        <img src="../assets/hoja.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        e-Freshq
+        
+      </div>
+      <div class="text-center container sm-6">
+        <button type="button" class="btn btn-light botones-side" >Mi Tienda</button>
+        <button type="button" class="btn btn-light botones-side" >Mi Perfil</button>
+        <button type="button" class="btn btn-light botones-side" >Mis Pedidos</button>
+
+      </div>
+      
+    </mat-drawer>
+    
+  
+
+
+    <router-outlet></router-outlet>
+  <footer class="page-footer font-small blue pt-4">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 bg-info footer-fondo">Todos Los Derechos Reservados © e-Fresh 2021
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  </mat-drawer-container>
+</div>

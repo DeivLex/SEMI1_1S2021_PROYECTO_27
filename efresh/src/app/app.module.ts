@@ -8,6 +8,20 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { SidebarComponent } from './sidebar/sidebar.component';
+
+//MATERIAL
+import {MatCardModule} from '@angular/material/card'
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { ProductoIndividualComponent } from './producto-individual/producto-individual.component';
+import { TiendaComponent } from './tienda/tienda.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +30,21 @@ import { InicioComponent } from './inicio/inicio.component';
     LoginComponent,
     RegisterComponent,
     Page404Component,
-    InicioComponent
+    InicioComponent,
+    SidebarComponent,
+    ProductoIndividualComponent,
+    TiendaComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

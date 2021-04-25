@@ -1,0 +1,46 @@
+.sidebar-container {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  .sidebar-sidenav-content {
+    display: flex;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidebar-sidenav {
+    padding: 20px;
+  }
+  .fondo-sidebar{
+    background: #34c0eb; /* fallback for old browsers */
+    max-width: 70%;
+  }
+  .menu-icon-landing {
+    color: white;
+  }
+
+  .efreshnavbar{
+    justify-content: space-between;
+    width:100%;
+    overflow: hidden;
+}
+
+.footer-fondo{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.texto-navbar{
+    color: white; 
+    font-family: Bradle Han;
+}
+
+.botones-side{
+  width:100%;
+  padding-top: 2%;
+  margin-top:25%
+}
