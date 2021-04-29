@@ -10,6 +10,29 @@ create table usuario(
 );
 
 
+CREATE TABLE producto(
+	idProducto int IDENTITY(1,1) NOT NULL primary key,
+	nombre varchar(50) NOT NULL,
+	precio float,
+	existencia int
+)
+
+
+
+
+create table categoria(
+	idCategoria int IDENTITY(1,1) NOT NULL primary key,
+	nombre varchar(70)
+)
+
+
+create table categoriaDetalle(
+	idCategoriaDetalle int not null,
+	idProductoDetalle int not null,
+	foreign key(idCategoriaDetalle) references categoria(idCategoria),
+	foreign key(idProductoDetalle) references Producto(idProducto)
+)
+
 drop table usuario;
 
 

@@ -1,13 +1,10 @@
 const userDb = require('../database/user')
 
 module.exports.getAll = async function(req,res){
-    console.log('paramsit00')
     await userDb.getAll(req,res);
 }
 
 module.exports.get = async function(req,res){
-    console.log(req.params)
-    console.log('paramsit')
     await userDb.get(req,res);
 }
  

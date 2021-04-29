@@ -3,4 +3,10 @@ module.exports.AWS_SECRET = {
         UserPoolId: 'us-east-1_AyI93vpvK',
         ClientId: '4fnct6lftqdvp7splfj5o7n56k',
     },
+    s3: {
+        region: 'us-east-2',
+        accessKeyId: "",
+        secretAccessKey: "",
+    },
+    bucketname:'practica1-g27-imagenes'
 }
