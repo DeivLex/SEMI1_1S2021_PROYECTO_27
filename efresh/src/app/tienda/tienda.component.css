@@ -2,6 +2,7 @@
     background-color:rgb(245, 245, 244);
     padding: 2%;
     margin-top:2%;
+    background-color:transparent;
 }
 
 .barra-busqueda{
@@ -14,3 +15,8 @@
     padding:0 ;
 }
 
+.contenedorProducto{
+    padding:2%;
+    align-items:center;
+    text-align:center;
+}

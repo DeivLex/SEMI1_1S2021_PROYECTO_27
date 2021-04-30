@@ -14,11 +14,17 @@ CREATE TABLE producto(
 	idProducto int IDENTITY(1,1) NOT NULL primary key,
 	nombre varchar(50) NOT NULL,
 	precio float,
-	existencia int
+	existencia int,
+	imagen varchar(300),
+	descripcion varchar(300)
 )
 
 
 
+insert into producto(nombre,precio,existencia,imagen,descripcion)
+values('manzana roja',33.5,500,'no tiene imagen','es una manzana roja')
+
+select * from producto;
 
 create table categoria(
 	idCategoria int IDENTITY(1,1) NOT NULL primary key,

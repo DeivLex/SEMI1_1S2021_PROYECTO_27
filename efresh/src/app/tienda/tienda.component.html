@@ -16,11 +16,10 @@
             <mat-card-content style="padding: 2%">
             <mat-card class="mat-card-tienda">
                
-                <mat-card-header class="bg-info" style="height: 20px; box-shadow: 1px 1px 1px #888888;">
-                </mat-card-header>
+               
                  
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div  class="col-sm-3">
                         <h1 style="text-align:center; margin-top:8%;">Catalogo De Productos</h1>
                     </div>
                     <div class="col-sm-9" style="align-items:center; text-align:center; ">
@@ -40,33 +39,41 @@
 
 
             <div class="row">
-                <div class="col-sm-4">
-                    <mat-card class="mat-card-tienda">
-                        <mat-card-header class="bg-info" style="height: 20px; box-shadow: 1px 1px 1px #888888;">
-                            hola
+                <div *ngFor="let product of pList" class="col-sm-4 " style="padding:1%">
+                    <mat-card class="mat-card-tienda " style="width:100%">
+                        <mat-card-header class="bg-info" style="height: 3px; ">
                         </mat-card-header>
-                        Cuerpo
+                        <div class="contenedorProducto" >
+                            <div class="row">
+                                <div class="col-sm-9" style="text-align:center;">
+                                    <h1 style="font-weight: bold">
+                                        {{product.nombre}}
+                                    </h1>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button (click)="agregarCarrito(product)" 
+                                    mat-fab color="basic" style="outline: none !important; background-color:	#5bc0de;" >
+                                    <mat-icon>shopping_cart</mat-icon>
+                                  </button>
+                                </div>
+                            </div>
+                            <hr class="solid">
+                            <p style="text-align:justify; text-justify: inter-word;">
+                                {{product.descripcion}}
+                            </p>
+                            <div class="contenedorProducto" >
+                                <img style="width:100%; max-height: 300px; min-height: 300px" 
+                                src={{product.imagen}}
+                                 alt="Imagen Producto">
+                            </div>
+                            <hr class="solid">
+                            <p style="text-align:center; font-weight: bolder;">
+                                Q {{product.precio}}
+                            </p>
+                        </div>
                     </mat-card>
                 </div>
 
-                <div class="col-sm-4">
-                    <mat-card class="mat-card-tienda">
-                        <mat-card-header class="bg-info" style="height: 20px; box-shadow: 1px 1px 1px #888888;">
-                            hola
-                        </mat-card-header>
-                        Cuerpo
-                    </mat-card>
-                </div>
-
-
-                <div class="col-sm-4">
-                    <mat-card class="mat-card-tienda">
-                        <mat-card-header class="bg-info" style="height: 20px; box-shadow: 1px 1px 1px #888888;">
-                            hola
-                        </mat-card-header>
-                        Cuerpo
-                    </mat-card>
-                </div>
 
             </div>
 

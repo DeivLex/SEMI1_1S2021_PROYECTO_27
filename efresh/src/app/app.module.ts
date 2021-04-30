@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 //MATERIAL
@@ -22,7 +22,7 @@ import { TiendaComponent } from './tienda/tienda.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { CarritoComponent } from './carrito/carrito.component';
-
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { CarritoComponent } from './carrito/carrito.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatSidenavModule,
@@ -47,6 +48,7 @@ import { CarritoComponent } from './carrito/carrito.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
