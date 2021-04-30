@@ -21,6 +21,7 @@ import { ProductoIndividualComponent } from './producto-individual/producto-indi
 import { TiendaComponent } from './tienda/tienda.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { CarritoComponent } from './carrito/carrito.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {MatInputModule} from '@angular/material/input';
     SidebarComponent,
     ProductoIndividualComponent,
     TiendaComponent,
+    CarritoComponent,
   ],
   imports: [
     BrowserModule,
