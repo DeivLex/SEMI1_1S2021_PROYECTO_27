@@ -33,6 +33,23 @@ create table categoriaDetalle(
 	foreign key(idProductoDetalle) references Producto(idProducto)
 )
 
+create table carrito(
+	idCarrito int IDENTITY(1,1) NOT NULL primary key,
+	idUsuarioDetalle int not null,
+	active varchar(50) NOT NULL,
+	foreign key(idUsuarioDetalle) references usuario(idUsuario)
+);
+
+create table carritoDetalle(
+	idCarritoDetalle int not null,
+	idProductoDetalle int not null,
+	cantidad int not null,
+	subtotal int not null,
+	foreign key(idProductoDetalle) references Producto(idProducto),
+	foreign key(idCarritoDetalle) references carrito(idCarrito)
+);
+
+
 drop table usuario;
 
 
