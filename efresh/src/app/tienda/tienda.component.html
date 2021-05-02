@@ -45,13 +45,14 @@
                         </mat-card-header>
                         <div class="contenedorProducto" >
                             <div class="row">
-                                <div class="col-sm-9" style="text-align:center;">
+                                <div class="col-sm-9" style="text-align:center; display: -webkit-inline-box;">
                                     <h1 style="font-weight: bold">
                                         {{product.nombre}}
                                     </h1>
+                                    <input style="width: 60px; margin-left: 40%;" min={{product.value}} #name value={{product.value}} class="quantity-input" type="number"/>
                                 </div>
                                 <div class="col-sm-3">
-                                    <button (click)="agregarCarrito(product)" 
+                                    <button (click)="agregarCarrito(product, name.value)" 
                                     mat-fab color="basic" style="outline: none !important; background-color:	#5bc0de;" >
                                     <mat-icon>shopping_cart</mat-icon>
                                   </button>

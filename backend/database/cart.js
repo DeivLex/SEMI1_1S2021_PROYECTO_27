@@ -23,7 +23,7 @@ module.exports.post = function (req,res){
     const id = req.body.id;
     const product = req.body.product;
     const count = req.body.count;
-    const subtotal = 0;
+    const subtotal = req.body.subtotal;
     request.query(`
     SELECT * from carrito
     WHERE idUsuarioDetalle = ${id};`,

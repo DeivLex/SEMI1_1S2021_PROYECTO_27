@@ -29,25 +29,29 @@
                       <div class="py-2 text-uppercase">Quantity</div>
                     </th>
                     <th scope="col" class="border-0 bg-light">
+                      <div class="py-2 text-uppercase">SubTotal</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light">
                       <div class="py-2 text-uppercase">Remove</div>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr *ngFor="let dato of datos; index as i;">
                     <th scope="row" class="border-0">
                       <div class="p-2">
-                        <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                        <img src="{{dato.imagen}}" alt="" width="70" class="img-fluid rounded shadow-sm">
                         <div class="ml-3 d-inline-block align-middle">
-                          <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
+                          <h5 class="mb-0"> <a style="font-size: x-large;" class="text-dark d-inline-block align-middle">{{dato.nombre}}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Descripcion: {{dato.descripcion}}</span>
                         </div>
                       </div>
                     </th>
-                    <td class="border-0 align-middle"><strong>Q79.00</strong></td>
-                    <td class="border-0 align-middle"><strong>3</strong></td>
+                    <td class="border-0 align-middle"><strong>Q{{dato.precio}}</strong></td>
+                    <td class="border-0 align-middle"><strong>{{dato.cantidad}}</strong></td>
+                    <td class="border-0 align-middle"><strong>Q{{dato.subtotal}}</strong></td>
                     <td class="border-0 align-middle">
-                        <a href="#" class="text-dark">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <a class="text-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" (click)="Remove(i,dato.subtotal)" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                               </svg>
                         </a>
@@ -55,7 +59,8 @@
                   </tr>
                 </tbody>
               </table>
-              <button type="button" class="btn btn-dark" style="margin-left: 80%;">Comprar</button>
+              <h1>Total: Q{{total}}</h1>
+              <button type="button" class="btn btn-dark" (click)="Comprar()" style="margin-left: 80%;">Comprar</button>
             </div>
             <!-- End -->
           </div>

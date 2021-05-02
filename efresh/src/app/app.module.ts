@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Page404Component } from './page404/page404.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -42,6 +43,7 @@ import {MatDividerModule} from '@angular/material/divider';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     MatCardModule,
     MatSidenavModule,
     MatButtonModule,
