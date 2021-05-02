@@ -1,29 +1,41 @@
 <div id="login">
-    <h3 class="text-center text-white pt-5">Login form</h3>
+    
     <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
                 <div id="login-box" class="col-md-12">
                     <form id="login-form" class="form" action="" method="post">
-                        <h3 class="text-center text-info">Register</h3>
+                        <h3 class="text-center  pt-5" style="color:rgb(9, 126, 126); font-weight:bolder;">Register</h3>
                         <div class="form-group">
-                            <label for="username" class="text-info">Username:</label><br>
-                            <input type="text" name="username" id="username" class="form-control">
+                            <label for="username" class="text-info">Email:</label><br>
+                            <input type="text" name="username" id="username" class="form-control" [(ngModel)]="email">
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-info">Password:</label><br>
-                            <input type="text" name="password" id="password" class="form-control">
+                            <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password">
                         </div>
                         <div class="form-group">
-                            <label for="password" class="text-info">Data:</label><br>
-                            <input type="text" name="password" id="password" class="form-control">
+                            <label for="password" class="text-info">Confirmar Password:</label><br>
+                            <input type="password" name="passwordR" id="passwordR" class="form-control" [(ngModel)]="confirmPassword">
                         </div>
                         <div class="form-group">
-                            <label for="password" class="text-info">Data:</label><br>
-                            <input type="text" name="password" id="password" class="form-control">
+                            <label for="password" class="text-info">PhoneNumber</label><br>
+                            <input type="text" name="passwordA" id="passwordA" class="form-control" [(ngModel)]="phoneNumber">
                         </div>
                         <div class="form-group">
-                           <input type="submit" name="submit" class="btn btn-info btn-md" value="Register">
+                            <label for="password" class="text-info">address</label><br>
+                            <input type="text" name="passwordB" id="passwordB" class="form-control" [(ngModel)]="address">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">name</label><br>
+                            <input type="text" name="passwordC" id="passwordC" class="form-control" [(ngModel)]="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">lastname</label><br>
+                            <input type="text" name="passwordD" id="passwordD" class="form-control" [(ngModel)]="lastname">
+                        </div>
+                        <div class="form-group">
+                           <input type="submit" name="submit" class="btn btn-info btn-md" value="Register" (click)="register()">
                         </div>
                     </form>
                 </div>

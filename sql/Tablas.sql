@@ -22,6 +22,7 @@ CREATE TABLE producto(
 
 
 insert into producto(nombre,precio,existencia,imagen,descripcion)
+OUTPUT INSERTED.idProducto
 values('manzana roja',33.5,500,'no tiene imagen','es una manzana roja')
 
 select * from producto;
@@ -55,6 +56,57 @@ create table carritoDetalle(
 	foreign key(idCarritoDetalle) references carrito(idCarrito)
 );
 
+
+select * from categoria;
+
+
+------------------CREAR LA CATEOGIRA DEL PRODUCTO
+CREATE OR ALTER PROCEDURE crearProducto @idProd int, @cateIn nvarchar(70)
+AS
+DECLARE @idCate Int
+IF EXISTS (SELECT * FROM categoria WHERE nombre = @cateIn)
+BEGIN
+	
+	SET @idCate = (select idCategoria from categoria where nombre = @cateIn)
+	insert into categoriaDetalle values(@idCate,@idProd)
+END
+ELSE
+BEGIN
+   	insert into categoria(nombre) values(@cateIn);
+   	SET @idCate = (select idCategoria from categoria where nombre = @cateIn)
+	insert into categoriaDetalle values(@idCate,@idProd)
+END;
+
+EXEC crearProducto @idProd = 1,@cateIn = 'NOVO';
+----------------------BORRAR PRODUCTO Y SUS CATEOGRIAS
+CREATE OR ALTER PROCEDURE eliminarProducto @idProd int
+AS
+BEGIN
+	delete from categoriaDetalle   where idProductoDetalle = @idProd
+	delete from producto   where idProducto = @idProd
+END;
+
+EXEC eliminarProducto @idProd = 19;
+----------------------CATEGORIAS DE UN PRODUCTO
+CREATE OR ALTER PROCEDURE verCategoriaProducto @idProd int
+AS
+BEGIN
+	select c.nombre from categoriaDetalle cd 
+	inner join producto p 
+	on p.idProducto = cd.idProductoDetalle 
+	inner join categoria c 
+	on c.idCategoria  = cd.idCategoriaDetalle 
+	where p.idProducto  = @idProd
+END;
+
+EXEC verCategoriaProducto @idProd = 18;
+--------------------------------
+select * from categoriaDetalle cd 
+
+select * from categoria c 
+
+
+select * from producto p 
 
 drop table usuario;
 

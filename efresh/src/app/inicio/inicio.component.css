@@ -1,0 +1,17 @@
+.lateralInicio{
+    padding:1%;
+    margin:2%;
+
+    text-align:center;
+    background-color:wheat; 
+}
+.bodyInicio{
+    padding:1%;
+    margin:2%;
+
+    background-color:rgb(255, 255, 255); 
+}
+
+hr.solid {
+    border-top: 2px solid #bbb;
+  }

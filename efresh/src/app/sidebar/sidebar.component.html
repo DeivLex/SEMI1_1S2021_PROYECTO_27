@@ -8,7 +8,10 @@
         <img src="../assets/hoja.png" width="30" height="30" class="d-inline-block align-top" alt="">
         e-Fresh
       </a>
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit" routerLink="/login">Login</button>
+      
+      <button *ngIf="showLogin" class="btn btn-outline-light my-2 my-sm-0" type="submit" routerLink="/login">Login</button>
+      <button *ngIf="!showLogin" class="btn btn-outline-light my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+      
     </nav>
     </div>
 
@@ -23,9 +26,9 @@
         
       </div>
       <div class="text-center container sm-6">
-        <button type="button" class="btn btn-light botones-side" >Mi Tienda</button>
-        <button type="button" class="btn btn-light botones-side" >Mi Perfil</button>
-        <button type="button" class="btn btn-light botones-side" >Mis Pedidos</button>
+        <button type="button" class="btn btn-light botones-side" routerLink="/store">Mi Tienda</button>
+        <button *ngIf="!showLogin" type="button" class="btn btn-light botones-side" routerLink="/home">Mi Perfil</button>
+        <button *ngIf="!showLogin" type="button" class="btn btn-light botones-side" >Mis Pedidos</button>
 
       </div>
       

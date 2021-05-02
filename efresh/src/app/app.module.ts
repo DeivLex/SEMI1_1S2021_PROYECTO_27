@@ -12,7 +12,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import { FormsModule } from '@angular/forms';
 //MATERIAL
 import {MatCardModule} from '@angular/material/card'
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -51,6 +51,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,14 +1,20 @@
 const productDb = require('../database/product')
 const s3 = require('../services/s3')
+const rekog = require('../services/rekognition')
 
 module.exports.post = async function(req,res){
-    let upload = await s3.upload(base64,extension)
-    if(upload.status){
-        req.body.image = upload.msg
-        productDb.post(req,res);
-    }else{
-        res.status(400).send(upload.msg)
-    }
+    let upload =  s3.upload(req.body.base64,req.body.extension)
+    upload.then((data) => {
+        req.body.image = data.Location
+        let recon = rekog.getLabels(req.body.base64);
+        recon.then((data) => {
+            productDb.post(req,res,data.Labels);
+        }).catch(err => {
+            res.status(400).send({msg:err.message})
+        })
+    }).catch(err => {
+        res.status(400).send({msg:err.message})
+    })
 }
 
 module.exports.getAll = async function(req,res){

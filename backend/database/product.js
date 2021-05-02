@@ -3,25 +3,40 @@ const config = require('../config/config');
 
 
 
-module.exports.post = function (req,res){
+module.exports.post = function (req,res,labels){
     mssql.connect(config.configdb, function (err) {
     var request = new mssql.Request();
-    var id = req.params.id;
     const name = req.body.name;
     const price = req.body.price;
     const qty = req.body.qty;
     const descripcion = req.body.description;
     const image = req.body.image;
     request.query(`
-        insert into  usuario (nombre,precio,existencia,imagen,descripcion)
-        values('${name}','${price}','${qty}'${image},'${descripcion}'
-        where idProducto = ${id};`,
-        function (err, records) {
+        insert into  producto (nombre,precio,existencia,imagen,descripcion)
+        OUTPUT INSERTED.idProducto
+        values('${name}','${price}','${qty}','${image}','${descripcion}');`,
+        async function (err, records) {
             if (err){ 
                 res.status(400).send({msg:err})
             }
             else{
-                res.status(200).send(records)
+                let idProducto = records.recordset[0].idProducto
+                let errorP = undefined;
+                await Promise.all(labels.map(async (cateItem) => {
+                    var requestCate = new mssql.Request();
+                    requestCate.query(`
+                    EXEC crearProducto @idProd = ${idProducto},
+                        @cateIn = '${cateItem.Name}';`,
+                    function (err, records) {
+                        if(err)
+                            errorP=err
+            
+                    });
+                }));
+                if(errorP)
+                    res.status(400).send({msg:errorP,U:2})
+                else
+                    res.status(200).send(records.recordset[0])
             }
 
         });
@@ -99,7 +114,7 @@ module.exports.delete = function (req,res){
     mssql.connect(config.configdb, function (err) {
     var request = new mssql.Request();
     var id = req.params.id;
-    request.query(`delete from producto where idProducto = ${id};`,
+    request.query(`EXEC eliminarProducto @idProd = ${id};`,
         function (err, records) {
             if (err){ 
                 res.status(400).send({msg:err})

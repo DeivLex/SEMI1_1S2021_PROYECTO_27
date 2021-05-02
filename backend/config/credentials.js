@@ -5,8 +5,13 @@ module.exports.AWS_SECRET = {
     },
     s3: {
         region: 'us-east-2',
-        accessKeyId: "",
-        secretAccessKey: "",
+        accessKeyId: "AKIAVPT5MGCLYNLTK5YT",
+        secretAccessKey: "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",
     },
-    bucketname:'practica1-g27-imagenes'
+    rekogniton: {
+        region: 'us-east-2',
+        accessKeyId: "AKIAVPT5MGCLYNLTK5YT",
+        secretAccessKey: "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",
+    },
+    bucketname:'mybitbucket69'
 }

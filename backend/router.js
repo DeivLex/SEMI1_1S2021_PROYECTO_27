@@ -5,6 +5,7 @@ const user = require('./controller/user')
 const product = require('./controller/product')
 const middle = require('./middleware/auth')
 const cart = require('./controller/cart')
+const tag = require('./controller/tag')
 
 //=================AUTENTICACION COGNITO==============
 //CREAR CUENTA
@@ -40,5 +41,11 @@ router.post('/cart/',(req, res)=>{cart.post(req, res)})
 router.get('/cart/:id',(req, res)=>{cart.get(req, res)})
 //ELIMINAR CARRITO
 router.delete('/cart/:id',(req, res)=>{cart.delete(req, res)})
+//=================OPREACIONES DE CATEGORIA ==============
+//INFO TODAS CATEGORIAS DE UN PRODUCTO
+router.get('/tag/:id',(req, res)=>{product.get(req, res)})
+// TODAS LAS CATEGORIAS
+router.get('/tag/',(req, res)=>{product.getAll(req, res)})
+
 
 module.exports = router
