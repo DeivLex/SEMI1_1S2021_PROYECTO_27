@@ -41,6 +41,10 @@ router.post('/cart/',(req, res)=>{cart.post(req, res)})
 router.get('/cart/:id',(req, res)=>{cart.get(req, res)})
 //ELIMINAR CARRITO
 router.delete('/cart/:id',(req, res)=>{cart.delete(req, res)})
+//CREAR COMPRA
+router.post('/compra/',(req, res)=>{cart.postCompra(req, res)})
+//INFO DE COMPRAS
+router.get('/compra/:id',(req, res)=>{cart.getCompra(req, res)})
 //=================OPREACIONES DE CATEGORIA ==============
 //INFO TODAS CATEGORIAS DE UN PRODUCTO
 router.get('/tag/:id',(req, res)=>{product.get(req, res)})

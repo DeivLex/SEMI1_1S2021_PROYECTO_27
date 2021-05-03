@@ -20,8 +20,23 @@ export class CartService {
     });
   }
   // tslint:disable-next-line:typedef
+  InsertCompra(idR: string, fechaR: string, productR: string, totalR: string){
+    const path = `${server}/compra/`;
+    return this.http.post<any>(path, {
+      id: idR,
+      fecha: fechaR,
+      product: productR,
+      total: totalR
+    });
+  }
+  // tslint:disable-next-line:typedef
   getOne(idR: string){
     const path = `${server}/cart/${idR}`;
+    return this.http.get<any>(path);
+  }
+  // tslint:disable-next-line:typedef
+  getOneCompra(idR: string){
+    const path = `${server}/compra/${idR}`;
     return this.http.get<any>(path);
   }
   // tslint:disable-next-line:typedef

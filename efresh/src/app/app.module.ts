@@ -24,6 +24,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { CarritoComponent } from './carrito/carrito.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { CompraComponent } from './compra/compra.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {MatDividerModule} from '@angular/material/divider';
     ProductoIndividualComponent,
     TiendaComponent,
     CarritoComponent,
+    CompraComponent,
   ],
   imports: [
     BrowserModule,

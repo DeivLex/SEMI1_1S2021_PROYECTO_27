@@ -36,21 +36,23 @@ module.exports.post = function (req,res){
                 request.query(`INSERT INTO carrito VALUES (${id}, '1');`);
                 var idCarrito = 0;
                 request.query(`SELECT idCarrito FROM carrito 
-                WHERE idUsuarioDetalle = ${id};`,                 
-                idCarrito = records.recordset[0].idCarrito
-                );
-                request.query(`INSERT INTO carritoDetalle VALUES ( ${idCarrito} , ${product} , ${count} , ${subtotal});`,
+                WHERE idUsuarioDetalle = ${id};`,
+                function (err, records1) {               
+                    idCarrito = records1.recordset[0].idCarrito;
+                    request.query(`INSERT INTO carritoDetalle VALUES ( ${idCarrito} , ${product} , ${count} , ${subtotal});`,
                     res.status(200).send(records)
                 );
+                });
             }else if(records.recordset[0].active == 1){
                 var idCarrito = 0;
                 request.query(`SELECT idCarrito FROM carrito 
-                WHERE idUsuarioDetalle = ${id};`,                 
-                idCarrito = records.recordset[0].idCarrito
-                );
-                request.query(`INSERT INTO carritoDetalle VALUES ( ${idCarrito} , ${product} , ${count} , ${subtotal});`,
+                WHERE idUsuarioDetalle = ${id};`, 
+                function (err, records1) {               
+                    idCarrito = records1.recordset[0].idCarrito;
+                    request.query(`INSERT INTO carritoDetalle VALUES ( ${idCarrito} , ${product} , ${count} , ${subtotal});`,
                     res.status(200).send(records)
                 );
+            });
             }
         }
 
@@ -110,4 +112,42 @@ module.exports.get = function (req,res){
     }
     );
 })
+}
+
+module.exports.postCompra = function (req,res){
+    mssql.connect(config.configdb, function (err) {
+        var request = new mssql.Request();
+        const id = req.body.id;
+        const fecha = req.body.fecha;
+        const product = req.body.product;
+        const total = req.body.total;
+        request.query(`INSERT INTO compra VALUES ( ${id} , '${fecha}' , '${product}' , ${total})`,
+        function (err, records) {
+            if (err){ 
+                res.status(400).send({msg:err})
+            }
+            else{
+                res.status(200).send(records)
+            }
+
+        });
+    });
+}
+
+
+module.exports.getCompra = function (req,res){
+    mssql.connect(config.configdb, function (err) {
+    var request = new mssql.Request();
+    var id = req.params.id;
+    request.query(`select * from compra WHERE  idUsuarioDetalle = ${id};`,
+        function (err, records) {
+            if (err){ 
+                res.status(400).send({msg:err})
+            }
+            else{
+                res.status(200).send({datos: records.recordset})
+            }
+
+        });
+    });
 }

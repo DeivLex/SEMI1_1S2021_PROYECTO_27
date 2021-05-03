@@ -15,3 +15,11 @@ module.exports.delete = async function(req,res){
 module.exports.get = async function(req,res){
     await cartDb.get(req,res);
 }
+
+module.exports.postCompra = async function(req,res){
+    await cartDb.postCompra(req,res);
+}
+
+module.exports.getCompra = async function(req,res){
+    await cartDb.getCompra(req,res);
+}

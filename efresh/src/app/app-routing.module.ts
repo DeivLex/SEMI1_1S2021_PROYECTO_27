@@ -8,6 +8,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { TiendaComponent } from './tienda/tienda.component';
 import { ProductoIndividualComponent } from './producto-individual/producto-individual.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { CompraComponent } from './compra/compra.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'store', component: TiendaComponent },
   { path: 'pindi', component: ProductoIndividualComponent },
   { path: 'cart', component: CarritoComponent },
+  { path: 'pedidos', component: CompraComponent },
   { path: '**', component: Page404Component }
 ];
 

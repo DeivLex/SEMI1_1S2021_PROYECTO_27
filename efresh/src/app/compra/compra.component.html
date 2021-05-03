@@ -1,0 +1,22 @@
+<div style="margin: 2%;">
+    <table class="table">
+        <thead style="background-color: #17a2b8!important; color: white;">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Productos</th>
+            <th scope="col">Total</th>
+            <th scope="col">Id Pedido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items; index as i;">
+            <th scope="row">1</th>
+            <td>{{item.fecha}}</td>
+            <td style="white-space: pre;">{{item.productos}}</td>
+            <td>Q{{item.total}}</td>
+            <td>{{item.idCompra}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

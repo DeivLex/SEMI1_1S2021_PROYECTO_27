@@ -26,9 +26,10 @@
         
       </div>
       <div class="text-center container sm-6">
+        <button *ngIf="!showLogin" type="button" class="btn btn-light botones-side" routerLink="/cart">Mi Carrito</button>
         <button type="button" class="btn btn-light botones-side" routerLink="/store">Mi Tienda</button>
         <button *ngIf="!showLogin" type="button" class="btn btn-light botones-side" routerLink="/home">Mi Perfil</button>
-        <button *ngIf="!showLogin" type="button" class="btn btn-light botones-side" >Mis Pedidos</button>
+        <button *ngIf="!showLogin" type="button" class="btn btn-light botones-side" routerLink="/pedidos">Mis Pedidos</button>
 
       </div>
       

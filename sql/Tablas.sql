@@ -56,6 +56,14 @@ create table carritoDetalle(
 	foreign key(idCarritoDetalle) references carrito(idCarrito)
 );
 
+create table compra(
+	idCompra int IDENTITY(1,1) NOT NULL primary key,
+	idUsuarioDetalle int not null,
+	fecha varchar(50) NOT NULL,
+	productos varchar(250) NOT NULL,
+	total int not null,
+	foreign key(idUsuarioDetalle) references usuario(idUsuario)
+);
 
 select * from categoria;
 

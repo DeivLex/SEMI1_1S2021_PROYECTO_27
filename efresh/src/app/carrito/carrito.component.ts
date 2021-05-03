@@ -32,11 +32,19 @@ export class CarritoComponent implements OnInit {
   // tslint:disable-next-line:typedef
   Comprar(){
     const id = localStorage.getItem('user');
-    this.serviceCart.deleteOne(id).subscribe( data => {
+    this.serviceCart.deleteOne(id).subscribe();
+    let producto = '';
+    this.datos.forEach( element => {
+      producto += element.cantidad + ' ' + element.nombre + ' a Q' + element.precio + ';';
     });
+    const tiempoTranscurrido = Date.now();
+    const hoy = new Date(tiempoTranscurrido);
+    const fecha = hoy.toUTCString();
+    producto = String(producto.slice(0, -1));
+    console.log(producto);
+    this.serviceCart.InsertCompra(id, fecha, producto, String(this.total)).subscribe();
     this.datos = [];
     this.total = 0;
-    alert('Se le envio un correo con la informacion de la compra');
     this.toastr.success('Compra Realizada Correctamente');
   }
 
