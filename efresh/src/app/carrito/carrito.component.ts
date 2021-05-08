@@ -41,7 +41,9 @@ export class CarritoComponent implements OnInit {
     const hoy = new Date(tiempoTranscurrido);
     const fecha = hoy.toUTCString();
     producto = String(producto.slice(0, -1));
-    console.log(producto);
+    const mensaje = 'Usted ha comprado ' + producto + ' Con un total de Q' + this.total;
+    const correo = localStorage.getItem('email');
+    this.serviceCart.EmailCompra(correo , mensaje).subscribe();
     this.serviceCart.InsertCompra(id, fecha, producto, String(this.total)).subscribe();
     this.datos = [];
     this.total = 0;

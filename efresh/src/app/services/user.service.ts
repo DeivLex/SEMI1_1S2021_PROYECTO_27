@@ -26,6 +26,7 @@ export class UserService {
 
   saveLogin(user){
     localStorage.setItem('user', user.idUsuario);
+    localStorage.setItem('email', user.correo);
     localStorage.setItem('userJson', JSON.stringify(user));
     this.isLoggedCambio.next(false);
   }
@@ -34,6 +35,7 @@ export class UserService {
   }
   deleteLogin(){
     localStorage.setItem('user', "");
+    localStorage.setItem('email', "");
     localStorage.setItem('userJson', "{}");
     this.isLoggedCambio.next(true);
   }

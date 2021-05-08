@@ -44,4 +44,12 @@ export class CartService {
     const path = `${server}/cart/${idR}`;
     return this.http.delete<any>(path);
   }
+  // tslint:disable-next-line:typedef
+  EmailCompra(emailR: string, mensajeR: string){
+    const path = `${server}/compraEmail/`;
+    return this.http.post<any>(path, {
+      Email: emailR,
+      Message: mensajeR
+    });
+  }
 }

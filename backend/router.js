@@ -12,6 +12,8 @@ const tag = require('./controller/tag')
 router.post('/signup',middle.signup(),(req, res)=>{auth.signup(req, res)})
 //INICIAR SESION
 router.post('/login',(req, res)=>{auth.login(req, res)})
+//INICIAR SESION
+router.post('/compraEmail',(req, res)=>{auth.sendEmailCompra(req, res)})
 //=================OPREACIONES DE USUARIO ==============
 //INFO DE UN USUARIO
 router.get('/user/:id',(req, res)=>{user.get(req, res)})
