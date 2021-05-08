@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {ProductService} from '../services/product.service';
 import { CartService } from '../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+
+import {MatDialog} from '@angular/material/dialog';
+
+
 @Component({
   selector: 'app-tienda',
   templateUrl: './tienda.component.html',
@@ -9,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TiendaComponent implements OnInit {
   pList = [];
-  constructor(private fetchProduct: ProductService, private serviceCart: CartService, private toastr: ToastrService) {
+  constructor(public dialog: MatDialog,private fetchProduct: ProductService, private serviceCart: CartService, private toastr: ToastrService) {
     this.fetchProduct.getAll().subscribe( data => {
       data.recordset.forEach(element => {
         element.value = 1;
@@ -22,6 +26,17 @@ export class TiendaComponent implements OnInit {
     })
   );
 
+  }
+
+  tradu(texto) {
+    this.fetchProduct.traducir(texto).subscribe( data => {
+      this.toastr.success(data.text,"TEXTO TRADUCIDO");
+    }, (err => {
+      this.toastr.warning('ERROR',"ERROR TEXTO TRADUCIDO");
+    })
+    )
+
+    
   }
 
   ngOnInit(): void {

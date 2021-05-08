@@ -1,0 +1,46 @@
+<div class="container-fluid " style="min-height: 90%;">
+    <div class="fondo-tienda">
+       <h1 style="text-align:center">
+           Perfil Administrador
+       </h1>
+       <mat-card style="padding:5%">
+           <h3>Cargar Productos</h3>
+           <div class="row">
+            <div class="col-md-6">
+                <br>
+                <div class="custom-file" style="text-align:center;">
+                    
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Nombre</mat-label>
+                          <input matInput placeholder="" [(ngModel)]="nombre">
+                        </mat-form-field>
+                        <p></p> 
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Precio</mat-label>
+                          <textarea matInput placeholder="" [(ngModel)]="precio"></textarea>
+                        </mat-form-field>
+                        <p></p>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Cantidad</mat-label>
+                            <textarea matInput placeholder="" [(ngModel)]="cantidad"></textarea>
+                          </mat-form-field>
+                        <p></p>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Descripcion</mat-label>
+                            <textarea matInput placeholder="" [(ngModel)]="descripcion"> </textarea>
+                          </mat-form-field>
+                        <p></p>
+                    <button mat-stroked-button color="primary" (click)="mandarProducto()">Confirmar Producto</button>
+                </div>
+            </div>
+            <div class="col-md-6" style="text-align:center;">
+                <input #file accept="image/*" type="file" (change)="preview(file.files)" class="custom-file-input" id="imgFile">
+                <label class="custom-file-label" for="imgFile">Subir Foto </label>
+                <p></p>
+                <img id="profile-img" [src]="imgUrl == null ? '//ssl.gstatic.com/accounts/ui/avatar_2x.png' : imgUrl" alt="Image" style="width: 250px; height: 250px; " class="profile-img-card">
+                <p></p>
+            </div>
+        </div>
+       </mat-card>
+    </div>
+</div>

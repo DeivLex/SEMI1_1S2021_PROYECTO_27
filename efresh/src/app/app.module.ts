@@ -25,6 +25,8 @@ import {MatInputModule} from '@angular/material/input';
 import { CarritoComponent } from './carrito/carrito.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { CompraComponent } from './compra/compra.component';
+import { AdminComponent } from './admin/admin.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { CompraComponent } from './compra/compra.component';
     TiendaComponent,
     CarritoComponent,
     CompraComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { CompraComponent } from './compra/compra.component';
     MatInputModule,
     MatDividerModule,
     FormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

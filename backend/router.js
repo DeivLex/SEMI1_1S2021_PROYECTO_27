@@ -7,6 +7,9 @@ const middle = require('./middleware/auth')
 const cart = require('./controller/cart')
 const tag = require('./controller/tag')
 
+const translat = require('./controller/trans')
+
+
 //=================AUTENTICACION COGNITO==============
 //CREAR CUENTA
 router.post('/signup',middle.signup(),(req, res)=>{auth.signup(req, res)})
@@ -34,6 +37,8 @@ router.delete('/product/:id',(req, res)=>{product.delete(req, res)})
 router.get('/product/',(req, res)=>{product.getAll(req, res)})
 //CREAR PRODUCTO
 router.post('/product/',(req, res)=>{product.post(req, res)})
+//TRADUCIR
+router.post('/translate/',(req, res)=>{translat.textTrans(req, res)})
 //=================OPREACIONES DE CARRITO ==============
 //INFO DE TODOS LOS CARRITOS
 router.get('/cart/',(req, res)=>{cart.getAll(req, res)})
@@ -49,9 +54,9 @@ router.post('/compra/',(req, res)=>{cart.postCompra(req, res)})
 router.get('/compra/:id',(req, res)=>{cart.getCompra(req, res)})
 //=================OPREACIONES DE CATEGORIA ==============
 //INFO TODAS CATEGORIAS DE UN PRODUCTO
-router.get('/tag/:id',(req, res)=>{product.get(req, res)})
+router.get('/tag/:id',(req, res)=>{tag.get(req, res)})
 // TODAS LAS CATEGORIAS
-router.get('/tag/',(req, res)=>{product.getAll(req, res)})
+router.get('/tag/',(req, res)=>{tag.getAll(req, res)})
 
 
 module.exports = router

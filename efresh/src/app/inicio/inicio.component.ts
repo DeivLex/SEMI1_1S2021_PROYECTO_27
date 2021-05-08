@@ -15,7 +15,9 @@ export class InicioComponent implements OnInit {
     telefono:"78953646",
     direccion:"casa vieja",
     nombre:"juan",
-    apellido:"perez"}
+    apellido:"perez",
+    Armin:false
+  }
 
 
   constructor(private toastr: ToastrService,private userS: UserService,private router: Router) { }
@@ -25,6 +27,8 @@ export class InicioComponent implements OnInit {
     if(this.userS.isLogged == true)
       this.router.navigate(['/login']);
     this.usuario = this.userS.getLogin()  
+    if(this.usuario.Armin == true)
+      this.router.navigate(['/admin']);
     console.log(this.usuario)
   }
 
